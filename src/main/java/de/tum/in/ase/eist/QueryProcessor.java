@@ -3,7 +3,6 @@ package de.tum.in.ase.eist;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalInt;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -24,13 +23,12 @@ public class QueryProcessor {
                 String[] s = query.split(" ");
 
                 AtomicInteger sum = new AtomicInteger();
-                Arrays.stream(s).forEach(t -> {
-                            try {
-                                sum.addAndGet(Integer.parseInt(t));
-                            } catch (Exception ignored) {
-                            }
-                        }
-                );
+                for (String el : s) {
+                    try {
+                        sum.addAndGet(Integer.parseInt(el));
+                    } catch (Exception ignored) {
+                    }
+                }
             } else if (query.contains("largest")) { // TODO extend the programm here
                 String[] s = query.split(" ");
                 List<Integer> a = new ArrayList<>();
@@ -46,7 +44,7 @@ public class QueryProcessor {
                 return "Sean Connery";
             } else if (query.contains("color") && query.contains("banana")) {
                 return "yellow";
-            } else if(query.contains("")) {
+            } else if (query.contains("")) {
 
             }
         } catch (Exception ignored) {
