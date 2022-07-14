@@ -45,8 +45,17 @@ public class QueryProcessor {
                 return "Sean Connery";
             } else if (query.contains("color") && query.contains("banana")) {
                 return "yellow";
-            } else if (query.contains("")) {
+            } else if (query.contains("multiply")) {
+                String[] s = query.split(" ");
 
+                int sum = 1;
+                for (String el : s) {
+                    try {
+                        sum *= Integer.parseInt(el);
+                    } catch (Exception ignored) {
+                    }
+                }
+                return sum + "";
             }
         } catch (Exception ignored) {
         }
