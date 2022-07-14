@@ -2,7 +2,10 @@ package de.tum.in.ase.eist;
 
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalInt;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
@@ -24,7 +27,8 @@ public class QueryProcessor {
                 Arrays.stream(s).forEach(t -> {
                             try {
                                 sum.addAndGet(Integer.parseInt(t));
-                            } catch (Exception ignored) {}
+                            } catch (Exception ignored) {
+                            }
                         }
                 );
             } else if (query.contains("largest")) { // TODO extend the programm here
@@ -35,15 +39,18 @@ public class QueryProcessor {
                         a.add(Integer.parseInt(value.substring(0, s.length - 1)));
                     }
                 }
-                a.add(Integer.parseInt(s[s.length-1].substring(0, s.length - 1)));
+                a.add(Integer.parseInt(s[s.length - 1].substring(0, s.length - 1)));
                 OptionalInt max = a.stream().mapToInt(t -> t).max();
                 return max.toString();
-            } else if (query.contains("film") && query.contains("played")){
+            } else if (query.contains("film") && query.contains("played")) {
                 return "Sean Connery";
-            } else if (query.contains("color") && query.contains("banana")){
-            return "yellow";
+            } else if (query.contains("color") && query.contains("banana")) {
+                return "yellow";
+            } else if(query.contains("")) {
+
+            }
+        } catch (Exception ignored) {
         }
-        } catch (Exception ignored) {}
         return "";
     }
 }
