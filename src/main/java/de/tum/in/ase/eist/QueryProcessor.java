@@ -38,9 +38,9 @@ public class QueryProcessor {
                         a.add(Integer.parseInt(value.substring(0, value.length() - 1)));
                     }
                 }
-                a.add(Integer.parseInt(s[s.length - 1].substring(0, s[s.length - 1].length() - 1)));
+                a.add(Integer.parseInt(s[s.length - 1]));
                 OptionalInt max = a.stream().mapToInt(t -> t).max();
-                return max.toString();
+                return max.getAsInt() + "";
             } else if (query.contains("film") && query.contains("played")) {
                 return "Sean Connery";
             } else if (query.contains("color") && query.contains("banana")) {
