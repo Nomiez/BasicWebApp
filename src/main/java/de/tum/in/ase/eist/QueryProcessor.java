@@ -29,6 +29,7 @@ public class QueryProcessor {
                     } catch (Exception ignored) {
                     }
                 }
+                return sum.toString();
             } else if (query.contains("largest")) { // TODO extend the programm here
                 String[] s = query.split(" ");
                 List<Integer> a = new ArrayList<>();
