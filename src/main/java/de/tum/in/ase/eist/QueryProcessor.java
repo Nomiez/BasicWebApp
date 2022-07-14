@@ -35,10 +35,10 @@ public class QueryProcessor {
                 List<Integer> a = new ArrayList<>();
                 for (String value : s) {
                     if (value.contains(",")) {
-                        a.add(Integer.parseInt(value.substring(0, s.length - 1)));
+                        a.add(Integer.parseInt(value.substring(0, value.length() - 1)));
                     }
                 }
-                a.add(Integer.parseInt(s[s.length - 1].substring(0, s.length - 1)));
+                a.add(Integer.parseInt(s[s.length - 1].substring(0, s[s.length - 1].length() - 1)));
                 OptionalInt max = a.stream().mapToInt(t -> t).max();
                 return max.toString();
             } else if (query.contains("film") && query.contains("played")) {
