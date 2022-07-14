@@ -40,7 +40,9 @@ public class QueryProcessor {
                 return max.toString();
             } else if (query.contains("film") && query.contains("played")){
                 return "Sean Connery";
-            }
+            } else if (query.contains("color") && query.contains("banana")){
+            return "yellow";
+        }
         } catch (Exception ignored) {}
         return "";
     }
