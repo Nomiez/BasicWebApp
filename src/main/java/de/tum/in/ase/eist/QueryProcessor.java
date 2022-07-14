@@ -2,7 +2,7 @@ package de.tum.in.ase.eist;
 
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
@@ -28,7 +28,16 @@ public class QueryProcessor {
                         }
                 );
             } else if (query.contains("largest")) { // TODO extend the programm here
-                return "";
+                String[] s = query.split(" ");
+                List<Integer> a = new ArrayList<>();
+                for (String value : s) {
+                    if (value.contains(",")) {
+                        a.add(Integer.parseInt(value.substring(0, s.length - 1)));
+                    }
+                }
+                a.add(Integer.parseInt(s[s.length-1].substring(0, s.length - 1)));
+                OptionalInt max = a.stream().mapToInt(t -> t).max();
+                return max.toString();
             }
         } catch (Exception ignored) {}
         return "";
